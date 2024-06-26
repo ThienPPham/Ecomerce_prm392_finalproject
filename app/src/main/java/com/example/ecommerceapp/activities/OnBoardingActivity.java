@@ -1,4 +1,4 @@
-package com.example.ecommerceapp;
+package com.example.ecommerceapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +17,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.ecommerceapp.R;
+import com.example.ecommerceapp.adapters.SliderAdapter;
 
 public class OnBoardingActivity extends AppCompatActivity {
 
