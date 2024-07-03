@@ -56,7 +56,6 @@ public class ShowAllActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if(task.isSuccessful()){
                             for (DocumentSnapshot doc : task.getResult().getDocuments()){
-
                                 ShowAllModel showAllModel = doc.toObject(ShowAllModel.class);
                                 showAllModelList.add(showAllModel);
                                 showAllAdapter.notifyDataSetChanged();

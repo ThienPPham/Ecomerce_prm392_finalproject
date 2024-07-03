@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.ecommerceapp.R;
 import com.example.ecommerceapp.models.NewProductsModel;
 import com.example.ecommerceapp.models.PopularProductsModel;
+import com.example.ecommerceapp.models.ShowAllModel;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.ktx.Firebase;
 
@@ -32,6 +33,9 @@ public class DetailedActivity extends AppCompatActivity {
 
     //Popular Products
     PopularProductsModel popularProductsModel = null;
+
+    //Show All
+    ShowAllModel showAllModel = null;
     private FirebaseFirestore firestore;
 
     @Override
@@ -53,6 +57,8 @@ public class DetailedActivity extends AppCompatActivity {
             newProductsModel = (NewProductsModel) obj;
         } else if (obj instanceof PopularProductsModel) {
             popularProductsModel = (PopularProductsModel) obj;
+        } else if (obj instanceof ShowAllModel) {
+            showAllModel = (ShowAllModel) obj;
         }
 
         detailedImg = findViewById(R.id.detailed_img);
@@ -85,6 +91,16 @@ public class DetailedActivity extends AppCompatActivity {
             description.setText(popularProductsModel.getDescription());
             price.setText(String.valueOf(popularProductsModel.getPrice()));
             name.setText(popularProductsModel.getName());
+        }
+
+        //Show All Products
+        if (showAllModel != null){
+            Glide.with(getApplicationContext()).load(showAllModel.getImg_url()).into(detailedImg);
+            name.setText(showAllModel.getName());
+            rating.setText(showAllModel.getRating());
+            description.setText(showAllModel.getDescription());
+            price.setText(String.valueOf(showAllModel.getPrice()));
+            name.setText(showAllModel.getName());
         }
     }
 }
