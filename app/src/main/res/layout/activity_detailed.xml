@@ -186,6 +186,7 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_baseline_shopping_cart_24"
         android:drawableTint="@color/white"
+        android:background="@color/blue"
         android:padding="14dp"
         android:text="Buy Now"
         android:textAllCaps="false"
