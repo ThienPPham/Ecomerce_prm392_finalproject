@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -38,6 +39,7 @@ public class DetailedActivity extends AppCompatActivity {
     TextView rating, name, description, price, quatity;
     Button addToCart, buyNow;
     ImageView addItems, removeItems;
+    Toolbar toolbar;
     int totalQuantity = 1;
     int totalPrice = 0;
 
@@ -63,6 +65,10 @@ public class DetailedActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        toolbar = findViewById(R.id.detailed_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         firestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
